@@ -4,7 +4,8 @@ body {
   padding: 2rem;
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  color: #222;
+  color: white;
+  background-color: black; /* Changed background to black */
 }
 
 header {
@@ -17,5 +18,5 @@ section {
 }
 
 a {
-  color: #2563eb;
+  color: white; /* Changed link color to white */
 }
