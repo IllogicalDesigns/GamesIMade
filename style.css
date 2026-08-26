@@ -34,11 +34,12 @@ body {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
 }
 
-/* 4. IMAGE STYLING */
+/* IMAGE STYLING */
 .game-card img {
-    width: 100%; /* Image takes up the full width of its card */
-    height: 180px; /* Fixed height for uniform look */
-    object-fit: cover; /* Ensures the image covers the area without stretching/distortion */
+    width: 100%;
+    aspect-ratio: 5 / 4;
+    height: auto;
+    object-fit: cover;
     display: block;
 }
 
