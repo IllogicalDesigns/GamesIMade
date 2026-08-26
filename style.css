@@ -1,22 +1,74 @@
+/* 1. BASE STYLES & RESET */
 body {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  color: white;
-  background-color: black; /* Changed background to black */
+    font-family: sans-serif;
+    background-color: #000; /* Dark background similar to your example */
+    color: #fff;
+    margin: 20px;
+    padding: 0;
 }
 
-header {
-  padding: 4rem 0 2rem;
-  text-align: center;
+/* 2. GRID CONTAINER */
+/* This sets up the responsive grid */
+.game-grid-container {
+    display: grid;
+    /* This creates columns that automatically adjust based on screen size */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 25px; /* Space between the cards */
+    max-width: 1400px; /* Limits the total width of the grid */
+    margin: 0 auto; /* Centers the grid on the page */
 }
 
-section {
-  margin: 3rem 0;
+/* 3. CARD STYLING */
+.game-card {
+    background-color: #1a1a1a; /* Dark background for the card itself */
+    border-radius: 10px;
+    overflow: hidden; /* Ensures the image stays within the card's borders */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Gives it a slight 3D lift */
+    transition: transform 0.01s ease, box-shadow 0.3s ease;
+    cursor: pointer; /* Indicates it's clickable */
 }
 
-a {
-  color: white; /* Changed link color to white */
+/* Hover Effect (optional, but nice for UI) */
+.game-card:hover {
+    transform: translateY(-5px); /* Lifts the card slightly on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+/* 4. IMAGE STYLING */
+.game-card img {
+    width: 100%; /* Image takes up the full width of its card */
+    height: 180px; /* Fixed height for uniform look */
+    object-fit: cover; /* Ensures the image covers the area without stretching/distortion */
+    display: block;
+}
+
+/* 5. TEXT CONTENT STYLING */
+.card-content {
+    padding: 15px;
+}
+
+.card-content h3 {
+    margin-top: 0;
+    font-size: 1.4em;
+    color: #e0e0e0;
+    /* Truncates the title if it's too long */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-content p {
+    font-size: 0.9em;
+    color: #aaa; /* Subtitle text is slightly faded */
+    margin: 5px 0 0;
+}
+
+/* Adjustments for different sizes (optional) */
+@media (max-width: 600px) {
+    .game-grid-container {
+        gap: 15px;
+    }
+    .game-card {
+        border-radius: 8px;
+    }
 }

@@ -3,68 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game List</title>
+    <title>Game Library Grid</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <h1>List of Games I have made</h1>
+	<h1 style="text-align: center;">Games I have made</h1>
 
-    <ul>
-        <li>Ten seconds or die</li>
-        <li>Discount Santa Saves Chritmas</li>
-        <li>Lurker</li>
-        <li>MicroMayhem</li>
-        <li>Dungeon Co.</li>
-        <li>Ninjas On Scooters</li>
-        <li>Dead Silence: A walk in the park</li>
-        <li>Cardboard Carl</li>
-        <li>Crazy Charlot</li>
-        <li>It's a Tiny World!</li>
-        <li>The Road To Power</li>
-        <li>Smile Corp</li>
-        <li>Choices</li>
-        <li>Vehicular Slaughter</li>
-        <li>Its Time To Stop Running</li>
-        <li>Shopping Hell</li>
-        <li>Tiny Galaxies</li>
-        <li>This Game Sucks</li>
-        <li>Coming from nothing</li>
-        <li>Down below</li>
-        <li>The Sword of Saturn</li>
-        <li>No Brakes!</li>
-        <li>Just in time security</li>
-        <li>Protect The Blob!</li>
-        <li>Stuck in a loop with you</li>
-        <li>Primed</li>
-        <li>Brothers</li>
-        <li>Terminal Decension</li>
-        <li>What a Beach</li>
-        <li>Total Collapse</li>
-        <li>Testers' wanted!</li>
-        <li>Ghost Removers</li>
-        <li>Harvest Doom</li>
-        <li>Attack Man</li>
-        <li>Terror in transit</li>
-        <li>Turbo Sumo</li>
-        <li>Wash your hands please</li>
-        <li>The Summoner, serving justice</li>
-        <li>Mrs. Crow</li>
-        <li>Scaled to fit</li>
-        <li>Oops, I need all your XP</li>
-        <li>Whiskers of Fear</li>
-        <li>Waive your morals</li>
-        <li>Buried Under Profits</li>
-        <li>Loops</li>
-        <li>Seeing red</li>
-        <li>Madness</li>
-        <li>Forbidden Planet</li>
-        <li>Resonance</li>
-        <li>Ridiculous Biathlon</li>
-        <li>Netrunner</li>
-        <li>Ace Recon</li>
-        <li>Pirate's Bounty</li>
-        <li>Slapshot</li>
-    </ul>
+    <div class="game-grid-container">
+        
+        <!--CARD 1: Ace Recon -->
+		<a href="games/turbo_sumo.html" class="card-link"> 
+		    <div class="game-card">
+		        <!-- Replace 'covers/turbo_sumo.png' with your actual file path -->
+		        <img src="covers/turbo_sumo.png" alt="Turbo Sumo Cover">
+		        <div class="card-content">
+		            <h3>Turbo Sumo</h3>
+		            <p>by tinykidtoo</p>
+		            <p>Ludum Dare 54</p>
+		        </div >
+		    </div>
+		</a>
+
+
+        <!-- CARD EXAMPLE 2: Forbidden Planet -->
+        <div class="game-card">
+            <img src="covers/forbidden_planet.png" alt="Forbidden Planet Cover">
+            <div class="card-content">
+                <h3>Forbidden Planet</h3>
+                <p>by tinykidtoo</p>
+                <p>Ludum Dare 58</p>
+            </div>
+        </div>
+
+        <!-- CARD EXAMPLE 3: Turbo Sumo -->
+        <div class="game-card">
+            <img src="covers/turbo_sumo.png" alt="Turbo Sumo Cover">
+            <div class="card-content">
+                <h3>Turbo Sumo</h3>
+                <p>by tinykidtoo</p>
+                <p>Ludum Dare 54</p>
+            </div>
+        </div>
+        
+        <!-- ADD MORE CARDS HERE using this template -->
+        
+        <div class="game-card">
+            <img src="covers/your_next_game.png" alt="Game Cover">
+            <div class="card-content">
+                <h3>Game Title Here</h3>
+                <p>by tinykidtoo</p>
+                <p>Ludum Dare XX</p>
+            </div>
+        </div>
+
+    </div>
 
 </body>
 </html>
