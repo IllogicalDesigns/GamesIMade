@@ -1,86 +1,137 @@
-/* 1. BASE STYLES & RESET */
-body {
-    font-family: sans-serif;
-    background-color: #000; /* Dark background similar to your example */
-    color: #fff;
-    margin: 20px;
-    padding: 0;
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap");
+
+/* 8-bit / level-select theme */
+:root {
+    color-scheme: dark;
+    --bg: #040806;
+    --grid: #0a1712;
+    --frame: #0f2414;
+    --panel: #06110a;
+    --green: #2ee36f;
+    --cyan: #28d0ff;
+    --gold: #ffd23f;
+    --magenta: #ff2e63;
+    --white: #e8ffe9;
+    --dim: #5f8a68;
 }
 
-/* 2. GRID CONTAINER */
-/* This sets up the responsive grid */
+* { box-sizing: border-box; }
+html { image-rendering: pixelated; }
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--white);
+    font-family: "VT323", monospace;
+    font-size: 22px;
+    background-image:
+        linear-gradient(var(--grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: 32px 32px;
+    padding: 24px 16px 60px;
+}
+
+/* Section headings (pixel font) */
+h1 {
+    max-width: 1100px;
+    margin: 4px auto 16px;
+    font-family: "Press Start 2P", monospace;
+    font-size: 16px;
+    line-height: 1.4;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+h1.feat-head {
+    color: var(--gold);
+    text-shadow: 2px 2px 0 #7a3a00;
+}
+h1.grid-head {
+    color: var(--cyan);
+    text-shadow: 2px 2px 0 #063a4a;
+}
+
+/* Pixel separator between sections */
+.divider {
+    max-width: 1100px;
+    margin: 18px auto;
+    height: 10px;
+    background: repeating-linear-gradient(90deg, var(--green) 0 10px, transparent 10px 20px);
+    box-shadow: 0 0 14px rgba(46, 227, 111, .4);
+}
+
+/* Grid container */
 .game-grid-container {
     display: grid;
-    /* This creates columns that automatically adjust based on screen size */
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-    gap: 25px; /* Space between the cards */
-    max-width: 1400px; /* Limits the total width of the grid */
-    margin: 0 auto; /* Centers the grid on the page */
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 26px;
+    max-width: 1100px;
+    margin: 0 auto 36px;
 }
 
-/* 3. CARD STYLING */
+/* Featured (favourites) row: gold frame + glow */
+.game-grid-container.featured { gap: 24px; }
+.game-grid-container.featured .game-card {
+    border-color: var(--gold);
+    box-shadow: 8px 8px 0 #000, 0 0 24px rgba(255, 210, 63, .22);
+}
+
+/* Card = pixel slot */
 .game-card {
-    background-color: #1a1a1a; /* Dark background for the card itself */
-    border-radius: 00px;
-    overflow: hidden; /* Ensures the image stays within the card's borders */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Gives it a slight 3D lift */
-    transition: transform 0.01s ease, box-shadow 0.3s ease;
-    cursor: pointer; /* Indicates it's clickable */
+    background: var(--panel);
+    border: 4px solid var(--frame);
+    border-radius: 0px;
+    overflow: hidden;
+    box-shadow: 8px 8px 0 #000;
+    transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+    cursor: pointer;
 }
-
-/* Hover Effect (optional, but nice for UI) */
 .game-card:hover {
-    transform: translateY(-5px); /* Lifts the card slightly on hover */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+    transform: translate(-3px, -3px);
+    box-shadow: 11px 11px 0 #000;
+    border-color: var(--green);
 }
 
-/* IMAGE STYLING */
 .game-card img {
     width: 100%;
     aspect-ratio: 5 / 4;
     height: auto;
     object-fit: cover;
     display: block;
+    image-rendering: pixelated;
+    border-top: 4px solid var(--frame);
+    border-bottom: 4px solid var(--frame);
 }
 
-/* 5. TEXT CONTENT STYLING */
-.card-content {
-    padding: 15px;
-}
+/* Text content */
+.card-content { padding: 10px 12px 14px; }
 
 .card-content h3 {
-    margin-top: 0;
-    font-size: 1.4em;
-    color: #e0e0e0;
-    /* Truncates the title if it's too long */
+    margin: 0 0 4px;
+    font-size: 24px;
+    line-height: 1.1;
+    color: var(--gold);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
 .card-content p {
-    font-size: 0.9em;
-    color: #aaa; /* Subtitle text is slightly faded */
-    margin: 5px 0 0;
+    margin: 4px 0 0;
+    font-size: 18px;
 }
+.card-content p:first-of-type { color: var(--dim); }
+.card-content p:last-of-type { color: var(--magenta); text-transform: uppercase; }
 
-.card-link {
+/* Links */
+.card-link,
+.card-link:visited {
     text-decoration: none;
     color: inherit;
     display: block;
 }
 
-.card-link:visited {
-    color: inherit;
-}
-
-
-/* Adjustments for different sizes (optional) */
+/* Responsive tweaks */
 @media (max-width: 600px) {
-    .game-grid-container {
-        gap: 15px;
-    }
-    .game-card {
-        border-radius: 8px;
-    }
+    .game-grid-container { gap: 15px; }
+    h1 { font-size: 12px; }
 }
